@@ -46,7 +46,7 @@ Tamanho da imagem após build: 6.34GB
 No exemplo abaixo o Sqoop vai na base mnttbpp de monitoração, obtem os dados da tabela itemmonit e joga em formato csv na pasta /tmp/mnt_ti_itemmonit.
 
 ```
-sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://db2t105:50001/mnttbpp --username XXXXX --password XXXXX --table mnt.itemmonit --split-by iditem --target-dir /tmp/mnt_ti_itemmonit
+sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://server:port/database --username XXXXX --password XXXXX --table schema.tablename --split-by iditem --target-dir /tmp/table_name
 ```
 
 #### Apache Zeppelin
@@ -60,7 +60,7 @@ Tamanho da imagem após build: 2.86GB
 ```
 %impala
 
-select * from tabela_teste
+select * from table_name;
 ```
 
 O container Zeppelin está com o Spark configurado e integrado ao Yarn do CDH, ou seja, as execuções do Spark (Spark, SparkR, PySpark, SparkSQL...) serão submetidas no Spark do CDH a partir do Yarn.
