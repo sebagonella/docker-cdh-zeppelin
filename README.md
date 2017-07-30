@@ -74,7 +74,7 @@ Tamanho da imagem após build: 3.17GB
 select * from table_name;
 ```
 
-O container Zeppelin está com o Spark configurado e integrado ao Yarn do CDH. Os processos submetidos ap Spark (Spark, SparkR, PySpark, SparkSQL...) serão executados no Spark do CDH a com Yarn.
+O container Zeppelin está com o Spark configurado e integrado ao Yarn do CDH. Os processos submetidos no Spark (Spark, SparkR, PySpark, SparkSQL...) serão executados no Spark do CDH a com Yarn.
 
 **Exemplo - Salvando dados no HDFS com PySpark**
 
