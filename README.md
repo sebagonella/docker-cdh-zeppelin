@@ -45,8 +45,11 @@ ResourceManager
 http://localhost:8088
 
 Hue
+
 http://localhost:8888
+
 user: cloudera
+
 pass: cloudera
 
 Tamanho da imagem após build: 6.46GB
