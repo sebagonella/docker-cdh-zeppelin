@@ -1,0 +1,80 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\ndf \u003d sc.parallelize(((\"a\", 1), (\"b\", 2))).toDF()\n\ndf.write.save(\u0027hdfs://cloudera.quickstart:8020/tmp/TestHDFS5\u0027, mode\u003d\u0027append\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "Jul 30, 2017 8:02:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4712230060063509628.py\", line 367, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-4712230060063509628.py\", line 355, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/local/spark/python/pyspark/sql/context.py\", line 62, in toDF\n    return sqlContext.createDataFrame(self, schema, sampleRatio)\n  File \"/usr/local/spark/python/pyspark/sql/context.py\", line 426, in createDataFrame\n    rdd, schema \u003d self._createFromRDD(data, schema, samplingRatio)\n  File \"/usr/local/spark/python/pyspark/sql/context.py\", line 313, in _createFromRDD\n    struct \u003d self._inferSchema(rdd, samplingRatio)\n  File \"/usr/local/spark/python/pyspark/sql/context.py\", line 257, in _inferSchema\n    first \u003d rdd.first()\n  File \"/usr/local/spark/python/pyspark/rdd.py\", line 1315, in first\n    rs \u003d self.take(1)\n  File \"/usr/local/spark/python/pyspark/rdd.py\", line 1297, in take\n    res \u003d self.context.runJob(self, takeUpToNumLeft, p)\n  File \"/usr/local/spark/python/pyspark/context.py\", line 939, in runJob\n    port \u003d self._jvm.PythonRDD.runJob(self._jsc.sc(), mappedRDD._jrdd, partitions)\n  File \"/usr/local/spark/python/lib/py4j-0.9-src.zip/py4j/java_gateway.py\", line 813, in __call__\n    answer, self.gateway_client, self.target_id, self.name)\n  File \"/usr/local/spark/python/pyspark/sql/utils.py\", line 45, in deco\n    return f(*a, **kw)\n  File \"/usr/local/spark/python/lib/py4j-0.9-src.zip/py4j/protocol.py\", line 308, in get_return_value\n    format(target_id, \".\", name), value)\nPy4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.\n: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 3, quickstart.cloudera.dockercdhzeppelin_default): org.apache.spark.api.python.PythonException: Traceback (most recent call last):\n  File \"/var/lib/hadoop-yarn/cache/yarn/nm-local-dir/usercache/root/appcache/application_1501444754861_0001/container_1501444754861_0001_01_000002/pyspark.zip/pyspark/worker.py\", line 64, in main\n    (\"%d.%d\" % sys.version_info[:2], version))\nException: Python in worker has different version 2.6 than that in driver 2.7, PySpark cannot run with different minor versions\n\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:166)\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.\u003cinit\u003e(PythonRDD.scala:207)\n\tat org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:125)\n\tat org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:70)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:270)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:89)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)\n\tat java.lang.Thread.run(Thread.java:745)\n\nDriver stacktrace:\n\tat org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1431)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1419)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1418)\n\tat scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)\n\tat scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)\n\tat org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1418)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:799)\n\tat org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:799)\n\tat scala.Option.foreach(Option.scala:236)\n\tat org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:799)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1640)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1599)\n\tat org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1588)\n\tat org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)\n\tat org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:620)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1832)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1845)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1858)\n\tat org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:393)\n\tat org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:231)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:381)\n\tat py4j.Gateway.invoke(Gateway.java:259)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:133)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:209)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: org.apache.spark.api.python.PythonException: Traceback (most recent call last):\n  File \"/var/lib/hadoop-yarn/cache/yarn/nm-local-dir/usercache/root/appcache/application_1501444754861_0001/container_1501444754861_0001_01_000002/pyspark.zip/pyspark/worker.py\", line 64, in main\n    (\"%d.%d\" % sys.version_info[:2], version))\nException: Python in worker has different version 2.6 than that in driver 2.7, PySpark cannot run with different minor versions\n\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.read(PythonRDD.scala:166)\n\tat org.apache.spark.api.python.PythonRunner$$anon$1.\u003cinit\u003e(PythonRDD.scala:207)\n\tat org.apache.spark.api.python.PythonRunner.compute(PythonRDD.scala:125)\n\tat org.apache.spark.api.python.PythonRDD.compute(PythonRDD.scala:70)\n\tat org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:306)\n\tat org.apache.spark.rdd.RDD.iterator(RDD.scala:270)\n\tat org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:66)\n\tat org.apache.spark.scheduler.Task.run(Task.scala:89)\n\tat org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)\n\tat java.lang.Thread.run(Thread.java:745)\n\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1501442876645_-39618819",
+      "id": "20170730-192756_2058186017",
+      "dateCreated": "Jul 30, 2017 7:27:56 PM",
+      "dateStarted": "Jul 30, 2017 8:02:12 PM",
+      "dateFinished": "Jul 30, 2017 8:02:57 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "anonymous",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1501442881325_1410115036",
+      "id": "20170730-192801_776176226",
+      "dateCreated": "Jul 30, 2017 7:28:01 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Untitled Note 1",
+  "id": "2CRPA1NHB",
+  "angularObjects": {
+    "2CQ1DTB9F:shared_process": [],
+    "2CNBK1X3Y:shared_process": [],
+    "2CPR4V1D9:shared_process": [],
+    "2CQCQGCW2:shared_process": [],
+    "2CPGC1PJA:shared_process": [],
+    "2CMPHD9US:shared_process": [],
+    "2CP8Y4PDV:shared_process": [],
+    "2CNCAVDZT:shared_process": [],
+    "2CR8421MC:shared_process": [],
+    "2CQ2WVZYM:shared_process": [],
+    "2CNM47DZ4:shared_process": [],
+    "2CP1Z73CQ:shared_process": [],
+    "2CPF8Q2JX:shared_process": [],
+    "2CNQEU6C7:shared_process": [],
+    "2CPB71XQU:shared_process": [],
+    "2CMX6QFH1:shared_process": [],
+    "2CPPYCEMW:shared_process": [],
+    "2CNM75QNB:shared_process": [],
+    "2CMQCFRN1:shared_process": [],
+    "2CQ7HGNPV:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

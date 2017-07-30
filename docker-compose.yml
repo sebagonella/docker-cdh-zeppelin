@@ -3,7 +3,7 @@ version: '2'
 services:
   quickstart.cloudera:
     build: quickstart.cloudera/.
-    image: bigdata/cdh:5.7.0
+    image: sebagonella/cdh:5.7.0
     command: /usr/bin/docker-quickstart
     working_dir: /home/cloudera
     ports:
@@ -44,7 +44,7 @@ services:
 
   zeppelin:
     build: zeppelin/.
-    image: bigdata/zeppelin:0.7.2
+    image: sebagonella/zeppelin:0.7.2
     command: /zeppelin/bin/zeppelin.sh
     working_dir: /zeppelin
     ports:

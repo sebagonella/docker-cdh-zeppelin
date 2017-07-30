@@ -2,9 +2,12 @@ FROM apache/zeppelin:0.7.2
 
 # Spark Version
 ENV APACHE_SPARK_VERSION 1.6.0
-ENV APACHE_HADOOP_VERSION 2.7.0
+ENV APACHE_HADOOP_VERSION 2.6.5
 
-# jdbc Impala
+# Download jdbc Impala
+ADD ./lib/impala_jdbc41.zip /zeppelin/interpreter/jdbc/impala_jdbc41.zip
+ADD ./lib/db2jcc.jar /zeppelin/interpreter/jdbc/db2jcc.jar
+RUN unzip -o /zeppelin/interpreter/jdbc/impala_jdbc41.zip -d /zeppelin/interpreter/jdbc/
 
 # hadoop
 RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-${APACHE_HADOOP_VERSION}/hadoop-${APACHE_HADOOP_VERSION}.tar.gz | tar -xz -C /usr/local/
@@ -19,7 +22,7 @@ ENV HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
 ENV YARN_CONF_DIR=$HADOOP_PREFIX/etc/hadoop
 ENV PATH=$PATH:/usr/local/hadoop/bin
 
-# Adicionando configuracoes Zeppelin
+# Adicionando configuracoes ao Zeppelin
 ADD zeppelin-conf/zeppelin-env.sh /zeppelin/conf/zeppelin-env.sh
 ADD zeppelin-conf/interpreter.json /zeppelin/conf/interpreter.json
 ADD hadoop-conf/core-site.xml /usr/local/hadoop/etc/hadoop
