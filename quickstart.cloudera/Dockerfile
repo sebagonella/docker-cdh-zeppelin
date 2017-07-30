@@ -8,8 +8,8 @@ RUN chmod 755 /usr/bin/docker-quickstart.original
 
 RUN yum install -y wget
 
-# JDBC DB2
-# RUN curl http://nexus.sicoob.com.br/repository/big-data/db2jcc.jar -o /usr/share/java/db2jcc.jar
+# jdbc DB2
+
 
 USER cloudera
 WORKDIR /home/cloudera

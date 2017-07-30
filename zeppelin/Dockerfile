@@ -4,9 +4,7 @@ FROM apache/zeppelin:0.7.2
 ENV APACHE_SPARK_VERSION 1.6.0
 ENV APACHE_HADOOP_VERSION 2.7.0
 
-# Download jdbc Impala
-# RUN curl http://nexus.sicoob.com.br/repository/big-data/impala_jdbc41.zip -o /zeppelin/interpreter/jdbc/impala_jdbc41.zip
-# RUN unzip -o /zeppelin/interpreter/jdbc/impala_jdbc41.zip -d /zeppelin/interpreter/jdbc/
+# jdbc Impala
 
 # hadoop
 RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-${APACHE_HADOOP_VERSION}/hadoop-${APACHE_HADOOP_VERSION}.tar.gz | tar -xz -C /usr/local/

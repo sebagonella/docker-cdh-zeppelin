@@ -5,7 +5,7 @@ Projeto para criação do ambiente integrado entre o Cloudera quickstart 5.7 e A
 **Clone do projeto**
 
 ```
-git clone http://git.sicoob.com.br/gearq-bigdata/docker-cdh-zeppelin.git
+git clone https://github.com/sebagonella/docker-cdh-zeppelin.git
 ```
 
 **Build do ambiente**
