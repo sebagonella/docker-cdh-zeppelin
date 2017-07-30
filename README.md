@@ -1,6 +1,8 @@
 # Docker - CDH e Zeppelin
 
-Projeto para criação do ambiente integrado entre o Cloudera quickstart 5.7 e Apache Zeppelin 0.7.2 usando docker e docker-compose.
+Ambiente integrado entre o Cloudera quickstart 5.7 e Apache Zeppelin 0.7.2 usando docker e docker-compose.
+
+![Architecture](architecture/architecture.png)
 
 **Clone do projeto**
 
@@ -17,19 +19,19 @@ $ docker-compose build
 
 **Subindo o ambiente**
 
-Subindo os dois containers
+Subindo os dois containers em background.
 
 ```
 $ docker-compose up -d
 ```
 
-Subindo apenas o Zeppelin
+Subindo apenas o Zeppelin em background
 
 ```
 $ docker-compose up -d zeppelin
 ```
 
-Subindo apenas o Cloudera
+Subindo apenas o Cloudera em background.
 
 ```
 $ docker-compose up -d quickstart.cloudera
@@ -37,7 +39,8 @@ $ docker-compose up -d quickstart.cloudera
 
 #### Cloudera quickstart
 
-O container do Cloudera quickstart já está com o jdbc do DB2 para conexão das bases do Sicoob, principalmente para uso com Sqoop.
+O container do Cloudera quickstart já está com o drive jdbc do DB2
+está curtomizado para subir apenas com 
 
 Tamanho da imagem após build: 6.34GB
 
