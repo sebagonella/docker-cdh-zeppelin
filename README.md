@@ -41,17 +41,14 @@ $ docker-compose up -d quickstart.cloudera
 
 O container do Cloudera quickstart já está com o drive jdbc do DB2 para uso com Sqoop, Spark ou outro necessário.
 
-ResourceManager
+**ResourceManager**  
 http://localhost:8088
 
-Hue
-
-http://localhost:8888
-
-user: cloudera
-
-pass: cloudera
-
+**Hue**  
+http://localhost:8888  
+user: cloudera  
+pass: cloudera  
+  
 Tamanho da imagem após build: 6.46GB
 
 **Exemplo - Obtendo dados do DB2 com Sqoop**
@@ -64,8 +61,8 @@ sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://server:port
 
 Já o container do Zeppelin está com o jdbc do Impala, bem como o interpreter Zeppelin (tipo jdbc) integrado e configurado ao CDH. 
 
-Zeppelin
-http://localhost:8081
+**Zeppelin**  
+http://localhost:8081  
 
 Tamanho da imagem após build: 3.17GB
 
