@@ -1,0 +1,59 @@
+version: '2'
+
+services:
+  quickstart.cloudera:
+    build: quickstart.cloudera/.
+    image: bigdata/cdh:5.7.0
+    command: /usr/bin/docker-quickstart
+    working_dir: /home/cloudera
+    ports:
+      - "7180:7180"
+      - "8080:8080"
+      - "8888:8888"
+      - "80:80"
+      - "4040:4040"
+      - "8020:8020"
+      - "8022:8022"
+      - "8030:8030"
+      - "8032:8032"
+      - "8033:8033"
+      - "8040:8040"
+      - "8042:8042"
+      - "8088:8088"
+      - "8485:8485"
+      - "9083:9083"
+      - "10020:10020"
+      - "10033:10033"
+      - "18088:18088"
+      - "19888:19888"
+      - "21050:21050"
+      - "25000:25000"
+      - "25010:25010"
+      - "25020:25020"
+      - "50010:50010"
+      - "50020:50020"
+      - "50070:50070"
+      - "50075:50075"
+    volumes:
+      - ./data/cdh:/data
+    container_name: "quickstart.cloudera"
+    hostname: "quickstart.cloudera"
+    privileged: true
+    stdin_open: true
+    tty: true
+
+  zeppelin:
+    build: zeppelin/.
+    image: bigdata/zeppelin:0.7.2
+    command: /zeppelin/bin/zeppelin.sh
+    working_dir: /zeppelin
+    ports:
+      - "8081:8080"
+      - "8082:8082"
+    volumes:
+      - ./data/zeppelin/notebook:/zeppelin/notebook
+    container_name: "zeppelin"
+    hostname: "zeppelin"
+    links:
+      - quickstart.cloudera
+      
