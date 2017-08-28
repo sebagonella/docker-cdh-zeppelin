@@ -2,7 +2,7 @@
 
 Ambiente integrado com Cloudera quickstart 5.7 e Apache Zeppelin 0.7.2 usando docker e docker-compose.
 
-![Architecture](architecture/architecture.png)
+![Schema](schema/schema.png)
 
 **Clone do projeto**
 
