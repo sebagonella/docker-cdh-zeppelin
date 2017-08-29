@@ -1,5 +1,9 @@
 # Cloudera Quickstart 5.7.0
 
+This image is part of an integrated project between CDH QuickStart 5.7.0 and Apache Zeppelin 2.7.2.
+
+https://github.com/sebagonella/docker-cdh-zeppelin
+
 **Get this image**
 
 ```

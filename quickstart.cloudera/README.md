@@ -1,5 +1,9 @@
 # Cloudera quickstart
 
+This image is part of an integrated project between CDH QuickStart 5.7.0 and Apache Zeppelin 2.7.2.
+
+https://github.com/sebagonella/docker-cdh-zeppelin
+
 **Get this image**
 
 ```
@@ -52,11 +56,13 @@ ResourceManager - http://localhost:8088
 
 Hue - http://localhost:8888  
 user: cloudera  
-pass: cloudera  
+pass: cloudera 
   
 Size docker image after build: 6.46GB
 
 **Example - Get data from DB2 to HDFS using Sqoop**
+
+This image already has the DB2 jdbc drive for use with Sqoop, Spark, or other required.
 
 ```
 sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://server:port/database --username XXXXX --password XXXXX --table schema.tablename --split-by idtable --target-dir /tmp/table_name

@@ -4,13 +4,13 @@ Integrated environment with Cloudera quickstart 5.7.0 and Apache Zeppelin 0.7.2 
 
 ![Schema](schema/schema.png)
 
-**Clone the project**
+**Clone this project**
 
 ```
 git clone https://github.com/sebagonella/docker-cdh-zeppelin.git
 ```
 
-**Build the project**
+**Build this project**
 
 ```
 $ cd docker-cdh-zeppelin
