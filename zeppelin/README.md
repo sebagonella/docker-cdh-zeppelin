@@ -1,4 +1,4 @@
-# Cloudera Quickstart 5.7.0
+# Apache Zeppelin 0.7.2
 
 This image is part of an integrated project between CDH QuickStart 5.7.0 and Apache Zeppelin 2.7.2.
 
