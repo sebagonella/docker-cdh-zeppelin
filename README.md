@@ -1,10 +1,10 @@
 # Docker - CDH e Zeppelin
 
-Ambiente integrado com Cloudera quickstart 5.7 e Apache Zeppelin 0.7.2 usando docker e docker-compose.
+Integrated environment with Cloudera quickstart 5.7.0 and Apache Zeppelin 0.7.2 using docker and docker-compose.
 
 ![Schema](schema/schema.png)
 
-**Clone do projeto**
+**Clone project**
 
 ```
 git clone https://github.com/sebagonella/docker-cdh-zeppelin.git
@@ -17,21 +17,21 @@ $ cd docker-cdh-zeppelin
 $ docker-compose build
 ```
 
-**Subindo o ambiente**
+**Run the enviropment**
 
-Subindo os dois containers em background.
+Starting containers in background
 
 ```
 $ docker-compose up -d
 ```
 
-Subindo apenas o Zeppelin em background
+Starting only Apache Zeppelin in background
 
 ```
 $ docker-compose up -d zeppelin
 ```
 
-Subindo apenas o Cloudera em background.
+Starting only Cloudera Quickstart in background
 
 ```
 $ docker-compose up -d quickstart.cloudera
@@ -39,19 +39,18 @@ $ docker-compose up -d quickstart.cloudera
 
 ### Cloudera quickstart
 
-O container do Cloudera quickstart já está com o drive jdbc do DB2 para uso com Sqoop, Spark ou outro necessário.
+The Cloudera Quickstart image already has the DB2 jdbc drive for use with Sqoop, Spark, or other required.
 
-**ResourceManager**  
-http://localhost:8088
+**Links**
 
-**Hue**  
-http://localhost:8888  
+ResourceManager - http://localhost:8088
+Hue - http://localhost:8888  
 user: cloudera  
-pass: cloudera  
+pass: cloudera 
   
-Tamanho da imagem após build: 6.46GB
+Size docker image after build: 6.46GB
 
-**Exemplo - Obtendo dados do DB2 com Sqoop**
+**Example - Get data from DB2 to HDFS using Sqoop**
 
 ```
 sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://server:port/database --username XXXXX --password XXXXX --table schema.tablename --split-by idtable --target-dir /tmp/table_name
@@ -59,14 +58,16 @@ sqoop import --driver com.ibm.db2.jcc.DB2Driver --connect jdbc:db2://server:port
 
 ### Apache Zeppelin
 
-Já o container do Zeppelin está com o jdbc do Impala, bem como o interpreter Zeppelin (tipo jdbc) integrado e configurado ao CDH. 
+**Links**
 
-**Zeppelin**  
+Zeppelin  
 http://localhost:8081  
 
-Tamanho da imagem após build: 3.17GB
+Size docker image after build: 3.17GB
 
-**Exemplo - Acesssando o Impala**
+**Example - Using Impala interpreter**
+
+The Apache Zeppelin image already has the Impala jdbc drive and a interpreter configured with it (jdbc type) to execute commands in the Impala of the Cloudera Quickstart enviropment.
 
 ```
 %impala
@@ -74,9 +75,11 @@ Tamanho da imagem após build: 3.17GB
 select * from table_name;
 ```
 
-O container Zeppelin está com o Spark configurado e integrado ao Yarn do CDH. Os processos submetidos no Spark (Spark, SparkR, PySpark, SparkSQL...) serão executados no Spark do CDH com Yarn.
+**Example - Using Spark YARN mode**
 
-**Exemplo - Salvando dados no HDFS com PySpark**
+This image has Zeppelin with Apache Spark configured and integrated with the Yarn of CDH.
+
+Example - Save data on HDFS with PySpark
 
 ```
 %pyspark
@@ -86,7 +89,7 @@ df = sc.parallelize((("a", 1), ("b", 2))).toDF()
 df.write.save('hdfs://cloudera.quickstart:8020/tmp/TestHDFS5', mode='append')
 ```
 
-**Interpreters disponíveis no Zeppelin**
+**Zeppelin Interpreters**
 
 * flink
 * spark 
