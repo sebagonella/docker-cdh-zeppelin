@@ -1,12 +1,12 @@
 # Cloudera quickstart
 
-**Get image**
+**Get this image**
 
 ```
 $ docker pull sebagonella/quickstart.cloudera:5.7.0
 ```
 
-**Build image**
+**Build this image**
 
 ```
 $ cd docker-cdh-zeppelin/quickstart.cloudera
@@ -49,6 +49,7 @@ $ docker run -d --name quickstart.cloudera \
 **Links**
 
 ResourceManager - http://localhost:8088
+
 Hue - http://localhost:8888  
 user: cloudera  
 pass: cloudera  

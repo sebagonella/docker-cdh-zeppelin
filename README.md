@@ -1,23 +1,23 @@
-# Docker - CDH e Zeppelin
+# Docker - CDH and Zeppelin
 
 Integrated environment with Cloudera quickstart 5.7.0 and Apache Zeppelin 0.7.2 using docker and docker-compose.
 
 ![Schema](schema/schema.png)
 
-**Clone project**
+**Clone the project**
 
 ```
 git clone https://github.com/sebagonella/docker-cdh-zeppelin.git
 ```
 
-**Build do ambiente**
+**Build the project**
 
 ```
 $ cd docker-cdh-zeppelin
 $ docker-compose build
 ```
 
-**Run the enviropment**
+**Start the enviropment**
 
 Starting containers in background
 
@@ -75,7 +75,7 @@ The Apache Zeppelin image already has the Impala jdbc drive and a interpreter co
 select * from table_name;
 ```
 
-**Example - Using Spark YARN mode**
+**Example - Using Spark in YARN mode**
 
 This image has Zeppelin with Apache Spark configured and integrated with the Yarn of CDH.
 

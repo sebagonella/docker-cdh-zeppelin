@@ -1,12 +1,12 @@
-# Cloudera quickstart
+# Cloudera Quickstart 5.7.0
 
-**Get image**
+**Get this image**
 
 ```
 $ docker pull sebagonella/zeppelin:0.7.2
 ```
 
-**Build image**
+**Build this image**
 
 ```
 $ cd docker-cdh-zeppelin/zeppelin
