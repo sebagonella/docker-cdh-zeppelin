@@ -1,8 +1,8 @@
-FROM apache/zeppelin:0.7.2
+FROM apache/zeppelin:0.8.1
 
 # Spark Version
-ENV APACHE_SPARK_VERSION 1.6.0
-ENV APACHE_HADOOP_VERSION 2.6.5
+ENV APACHE_SPARK_VERSION 2.4.3
+ENV APACHE_HADOOP_VERSION 2.7.7
 
 # Download jdbc Impala
 ADD ./lib/impala_jdbc41.zip /zeppelin/interpreter/jdbc/impala_jdbc41.zip
@@ -32,9 +32,9 @@ ADD hadoop-conf/yarn-site.xml /usr/local/hadoop/etc/hadoop
 
 # Download e instalacao Spark
 RUN cd /tmp && \
-        wget -q http://d3kbcqa49mib13.cloudfront.net/spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6.tgz && \
-        echo "439fe7793e0725492d3d36448adcd1db38f438dd1392bffd556b58bb9a3a2601 *spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6.tgz" | sha256sum -c - && \
-        tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6.tgz -C /usr/local && \
-        rm spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6.tgz
+        wget -q https://www-eu.apache.org/dist/spark/spark-2.4.3/spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz && \
+        echo "e8b7f9e1dec868282cadcad81599038a22f48fb597d44af1b13fcc76b7dacd2a1caf431f95e394e1227066087e3ce6c2137c4abaf60c60076b78f959074ff2ad *spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz" | sha512sum -c - && \
+        tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz -C /usr/local && \
+        rm spark-${APACHE_SPARK_VERSION}-bin-hadoop2.7.tgz
 RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop2.6 spark
 
